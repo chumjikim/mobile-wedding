@@ -1,0 +1,586 @@
+@font-face {
+  font-family: "GangwonEdu";
+  src: url("https://cdn.jsdelivr.net/npm/@noonnu/gangwon-edu-otf-bold-a@0.1.0/fonts/gangwoneduotfbolda-normal.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --bg: #e9ded2;
+  --paper: #fffdf9;
+  --card: #faf4ee;
+  --card-light: #fff8f1;
+  --text: #3f352f;
+  --title: #4b392f;
+  --subtext: #645b55;
+  --muted: #a18a79;
+  --accent: #806650;
+  --accent-light: #efe2d6;
+  --line: #eadccc;
+  --heart: #b36b66;
+  --shadow: 0 14px 30px rgba(80, 60, 40, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "GangwonEdu", "Apple SD Gothic Neo", "Noto Sans KR", serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.75;
+  word-break: keep-all;
+  -webkit-text-size-adjust: 100%;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--paper);
+  min-height: 100vh;
+  box-shadow: 0 0 36px rgba(80, 60, 40, 0.16);
+  overflow: hidden;
+}
+
+section {
+  padding: 70px 28px;
+  text-align: center;
+}
+
+.hero {
+  padding: 78px 28px 46px;
+  background: linear-gradient(180deg, #f5ede4 0%, var(--paper) 100%);
+}
+
+.date {
+  margin-bottom: 22px;
+  font-family: "GangwonEdu", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #9a7b63;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", "Noto Serif KR", serif;
+  font-size: 2.05rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--title);
+}
+
+.subtitle {
+  margin-top: 18px;
+  font-family: "Noto Serif KR", serif;
+  font-size: 1rem;
+  color: #806d60;
+}
+
+.main-photo {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 0 16px;
+  border-radius: 26px;
+  box-shadow: 0 16px 36px rgba(80, 60, 40, 0.18);
+}
+
+.title {
+  margin-bottom: 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #b08a6c;
+  text-transform: uppercase;
+}
+
+.section-title-ko {
+  margin-bottom: 26px;
+  font-family: "Noto Serif KR", serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--title);
+}
+
+.message {
+  font-size: 1rem;
+  color: #5f5550;
+  line-height: 2;
+  letter-spacing: -0.01em;
+  white-space: pre-line;
+}
+
+.names {
+  margin-top: 42px;
+  padding: 24px 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  font-size: 0.95rem;
+  color: var(--subtext);
+}
+
+.names p {
+  margin: 12px 0;
+}
+
+.names strong {
+  margin-left: 6px;
+  font-family: "Noto Serif KR", serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.call-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-left: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.75rem;
+  vertical-align: middle;
+}
+
+.divider {
+  width: 1px;
+  height: 48px;
+  margin: 0 auto;
+  background: #ddc8b8;
+}
+
+.info-box {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 24px rgba(80, 60, 40, 0.08);
+}
+
+.info-box p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  color: #5f5550;
+}
+
+.info-box strong {
+  font-family: "GangwonEdu", serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--title);
+}
+
+/* Calendar */
+.calendar-wrap {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 26px 18px;
+  box-shadow: 0 12px 28px rgba(80, 60, 40, 0.1);
+}
+
+.calendar-month {
+  margin: 0 0 18px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--title);
+}
+
+.calendar-weekdays,
+.calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-weekdays span {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #b08a6c;
+}
+
+.day {
+  position: relative;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  color: #5f5550;
+}
+
+.day.is-empty {
+  visibility: hidden;
+}
+
+.day.is-wedding {
+  z-index: 1;
+  flex-direction: column;
+  font-weight: 600;
+  color: #fff;
+}
+
+.day.is-wedding::before {
+  content: "♥";
+  position: absolute;
+  inset: -3px 0 0;
+  z-index: -1;
+  font-size: 52px;
+  line-height: 1;
+  color: var(--heart);
+}
+
+.day-time {
+  margin-top: -3px;
+  font-size: 0.56rem;
+}
+
+/* Gallery */
+.gallery-area {
+  position: relative;
+  margin: 30px -28px 0;
+}
+
+.slides {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 28px 12px;
+}
+
+.slides::-webkit-scrollbar {
+  height: 6px;
+}
+
+.slides::-webkit-scrollbar-thumb {
+  background: #d8c4b4;
+  border-radius: 999px;
+}
+
+.slide {
+  flex: 0 0 86%;
+  overflow: hidden;
+  scroll-snap-align: center;
+  background: #f8f1ea;
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 253, 249, 0.92);
+  color: #5d4638;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(80, 60, 40, 0.18);
+  transform: translateY(-50%);
+}
+
+.gallery-nav.prev {
+  left: 18px;
+}
+
+.gallery-nav.next {
+  right: 18px;
+}
+
+.swipe-guide {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* Location */
+.map-card {
+  margin-top: 26px;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  text-align: left;
+  box-shadow: 0 12px 28px rgba(80, 60, 40, 0.1);
+}
+
+.map-image {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #eee1d5;
+}
+
+.map-info {
+  padding: 24px 20px;
+}
+
+.place {
+  margin-bottom: 6px;
+  font-family: "Noto Serif KR", serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--title);
+}
+
+.address-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.address {
+  flex: 1;
+  font-size: 0.9rem;
+  color: #75685f;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: #5d4638;
+  cursor: pointer;
+}
+
+.map-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 14px 12px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-family: "Pretendard", sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button.light {
+  background: var(--accent-light);
+  color: #5d4638;
+}
+
+.transit-info {
+  margin-top: 30px;
+  padding: 4px 20px;
+  background: var(--card-light);
+  border: 1px solid var(--accent-light);
+  border-radius: 24px;
+  text-align: left;
+}
+
+.transit-item {
+  display: flex;
+  gap: 14px;
+  padding: 22px 0;
+  border-bottom: 1px solid #eee3d9;
+}
+
+.transit-item:last-child {
+  border-bottom: none;
+}
+
+.transit-icon {
+  flex: 0 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.transit-kind {
+  margin: 0 0 6px;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 400;
+  color: var(--title);
+}
+
+.transit-text p {
+  margin: 2px 0;
+  font-size: 0.88rem;
+  color: var(--subtext);
+}
+
+/* Account */
+.account-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 26px;
+  text-align: left;
+}
+
+details.account-card {
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+
+.account-summary {
+  padding: 18px 20px;
+  color: var(--title);
+  font-family: "GangwonEdu", serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.account-body {
+  padding: 0 20px 20px;
+}
+
+.account-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.account-number {
+  flex: 1;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #5f5550;
+}
+
+.copy-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-family: "Pretendard", sans-serif;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.copy-btn.light {
+  background: var(--accent-light);
+  color: #5d4638;
+}
+
+.contact-buttons {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+footer {
+  padding: 48px 20px;
+  background: var(--card-light);
+  color: #a5958a;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.share-link-btn {
+  margin-top: 18px;
+  padding: 13px 22px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-family: "Pretendard", sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+@media (max-width: 380px) {
+  section {
+    padding: 60px 22px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .slide {
+    flex-basis: 88%;
+  }
+}
+
+h1,
+.subtitle,
+.title,
+.section-title-ko,
+.message,
+.names,
+.info-box,
+.calendar-wrap,
+.map-card,
+.transit-info,
+.account-list,
+.button,
+.copy-btn,
+footer,
+.share-link-btn {
+  font-family: "GangwonEdu", "Apple SD Gothic Neo", "Noto Sans KR", serif;
+}
+
+.date,
+.info-box strong,
+.account-summary,
+.calendar-month,
+.place,
+.transit-kind,
+.names strong,
+h1,
+.section-title-ko,
+.subtitle {
+  font-family: "GangwonEdu", serif !important;
+}
+
+.kakao-map,
+#map {
+  width: 100%;
+  height: 240px;
+}
