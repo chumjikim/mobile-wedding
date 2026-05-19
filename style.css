@@ -622,3 +622,85 @@ h1,
     transform: rotate(360deg);
   }
 }
+
+/* LP BGM Button */
+.music-button {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 253, 249, 0.92);
+  box-shadow: 0 8px 22px rgba(80, 60, 40, 0.18);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lp-disc {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #f8efe7 0 12%, #3f352f 13% 19%, transparent 20%),
+    repeating-radial-gradient(circle, #5d4638 0 2px, #2f2925 3px 5px);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+}
+
+.lp-hole {
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  background: #fffdf9;
+}
+
+.music-button.is-playing .lp-disc {
+  animation: lpRotate 3s linear infinite;
+}
+
+@keyframes lpRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Sakura Effect */
+.sakura-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9998;
+}
+
+.sakura {
+  position: absolute;
+  top: -10vh;
+  width: 10px;
+  height: 14px;
+  border-radius: 70% 30% 70% 30%;
+  background: radial-gradient(circle at 30% 25%, #fff 6%, #ffdce7 40%, #f5b7ca 100%);
+  opacity: 0.75;
+  animation-name: sakuraFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sakuraFall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(var(--drift), 110vh, 0) rotate(380deg);
+    opacity: 0.05;
+  }
+}

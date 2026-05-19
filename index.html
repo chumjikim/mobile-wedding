@@ -15,6 +15,8 @@
 </head>
 
 <body>
+  <div class="sakura-layer" id="sakuraLayer" aria-hidden="true"></div>
+
   <div class="container">
 
     <section class="hero">
@@ -270,8 +272,11 @@
   <audio id="bgm" loop>
     <source src="./bgm.mp3" type="audio/mpeg" />
   </audio>
-  <button id="musicToggle" class="music-button">
-    ♪
+  
+  <button id="musicToggle" class="music-button" type="button" aria-label="음악 재생/정지">
+    <span class="lp-disc">
+      <span class="lp-hole"></span>
+    </span>
   </button>
 
   <script>
@@ -341,7 +346,6 @@
       await bgm.play();
       isPlaying = true;
       musicToggle.classList.add("is-playing");
-      musicToggle.innerText = "♫";
     } catch (e) {
       console.log("음악 재생 실패:", e);
     }
@@ -351,7 +355,6 @@
     bgm.pause();
     isPlaying = false;
     musicToggle.classList.remove("is-playing");
-    musicToggle.innerText = "♪";
   }
 
   musicToggle.addEventListener("click", function (event) {
@@ -379,6 +382,39 @@
     },
     { once: true }
   );
+</script>
+<script>
+  const sakuraLayer = document.getElementById("sakuraLayer");
+
+  function createSakura() {
+    const sakura = document.createElement("span");
+    sakura.className = "sakura";
+
+    const size = Math.random() * 7 + 7;
+    const left = Math.random() * 100;
+    const duration = Math.random() * 6 + 8;
+    const delay = Math.random() * 4;
+    const drift = Math.random() * 120 - 60;
+
+    sakura.style.width = `${size}px`;
+    sakura.style.height = `${size * 1.35}px`;
+    sakura.style.left = `${left}%`;
+    sakura.style.animationDuration = `${duration}s`;
+    sakura.style.animationDelay = `${delay}s`;
+    sakura.style.setProperty("--drift", `${drift}px`);
+
+    sakuraLayer.appendChild(sakura);
+
+    setTimeout(() => {
+      sakura.remove();
+    }, (duration + delay) * 1000);
+  }
+
+  for (let i = 0; i < 18; i++) {
+    createSakura();
+  }
+
+  setInterval(createSakura, 700);
 </script>
 
 </body>
