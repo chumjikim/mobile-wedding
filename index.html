@@ -344,7 +344,6 @@
       musicToggle.innerText = "♫";
     } catch (e) {
       console.log("음악 재생 실패:", e);
-      alert("음악 파일을 재생할 수 없습니다. bgm.mp3 파일 위치를 확인해 주세요.");
     }
   }
 
@@ -364,6 +363,22 @@
       playMusic();
     }
   });
+
+  document.addEventListener(
+    "touchstart",
+    function () {
+      if (!isPlaying) playMusic();
+    },
+    { once: true }
+  );
+
+  document.addEventListener(
+    "click",
+    function () {
+      if (!isPlaying) playMusic();
+    },
+    { once: true }
+  );
 </script>
 
 </body>
