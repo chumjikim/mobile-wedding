@@ -584,3 +584,41 @@ h1,
   width: 100%;
   height: 240px;
 }
+
+.music-button {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+
+  width: 52px;
+  height: 52px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+
+  color: #806650;
+  font-size: 1.2rem;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.music-button.is-playing {
+  animation: musicRotate 3s linear infinite;
+}
+
+@keyframes musicRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

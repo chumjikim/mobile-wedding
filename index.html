@@ -322,5 +322,54 @@
     });
   });
 </script>
+<script>
+  const bgm = document.getElementById("bgm");
+  const musicToggle = document.getElementById("musicToggle");
+
+  let isPlaying = false;
+
+  async function playMusic() {
+    try {
+      await bgm.play();
+      isPlaying = true;
+      musicToggle.classList.add("is-playing");
+      musicToggle.innerText = "♫";
+    } catch (e) {
+      console.log("자동재생 차단됨");
+    }
+  }
+
+  function pauseMusic() {
+    bgm.pause();
+    isPlaying = false;
+    musicToggle.classList.remove("is-playing");
+    musicToggle.innerText = "♪";
+  }
+
+  musicToggle.addEventListener("click", () => {
+    if (isPlaying) {
+      pauseMusic();
+    } else {
+      playMusic();
+    }
+  });
+
+  // 최초 사용자 터치 시 자동 재생 시도
+  window.addEventListener(
+    "click",
+    () => {
+      if (!isPlaying) {
+        playMusic();
+      }
+    },
+    { once: true }
+  );
+</script>
+<audio id="bgm" loop>
+  <source src="./bgm.mp3" type="audio/mpeg" />
+</audio>
+<button id="musicToggle" class="music-button">
+  ♪
+</button>
 </body>
 </html>
