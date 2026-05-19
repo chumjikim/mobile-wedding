@@ -11,14 +11,18 @@
   --paper: #fffdf9;
   --card: #faf4ee;
   --card-light: #fff8f1;
+
   --text: #3f352f;
   --title: #4b392f;
   --subtext: #645b55;
   --muted: #a18a79;
+
   --accent: #806650;
   --accent-light: #efe2d6;
+
   --line: #eadccc;
   --heart: #b36b66;
+
   --shadow: 0 14px 30px rgba(80, 60, 40, 0.14);
 }
 
@@ -32,100 +36,164 @@ html {
 
 body {
   margin: 0;
-  font-family: "GangwonEdu", "Apple SD Gothic Neo", "Noto Sans KR", serif;
-  color: var(--text);
+
   background: var(--bg);
+  color: var(--text);
+
+  font-family:
+    "GangwonEdu",
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    serif;
+
   line-height: 1.75;
   word-break: keep-all;
+
   -webkit-text-size-adjust: 100%;
+
+  overflow-x: hidden;
 }
 
 .container {
+  position: relative;
+  z-index: 5;
+
   max-width: 480px;
-  margin: 0 auto;
-  background: var(--paper);
   min-height: 100vh;
-  box-shadow: 0 0 36px rgba(80, 60, 40, 0.16);
+
+  margin: 0 auto;
+
+  background: var(--paper);
+
   overflow: hidden;
+
+  box-shadow: 0 0 36px rgba(80, 60, 40, 0.16);
 }
+
+/* =========================
+   SECTION
+========================= */
 
 section {
   padding: 70px 28px;
   text-align: center;
 }
 
+.divider {
+  width: 1px;
+  height: 48px;
+
+  margin: 0 auto;
+
+  background: #ddc8b8;
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
   padding: 78px 28px 46px;
-  background: linear-gradient(180deg, #f5ede4 0%, var(--paper) 100%);
+
+  background:
+    linear-gradient(
+      180deg,
+      #f5ede4 0%,
+      var(--paper) 100%
+    );
 }
 
 .date {
   margin-bottom: 22px;
-  font-family: "GangwonEdu", serif;
+
   font-size: 1rem;
-  font-weight: 400;
   letter-spacing: 0.08em;
+
   color: #9a7b63;
 }
 
 h1 {
   margin: 0;
-  font-family: "Cormorant Garamond", "Noto Serif KR", serif;
+
   font-size: 2.05rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.08em;
+
   color: var(--title);
 }
 
 .subtitle {
   margin-top: 18px;
-  font-family: "Noto Serif KR", serif;
+
   font-size: 1rem;
+
   color: #806d60;
 }
 
 .main-photo {
   display: block;
+
   width: calc(100% - 32px);
+
   margin: 0 16px;
-  border-radius: 26px;
-  box-shadow: 0 16px 36px rgba(80, 60, 40, 0.18);
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 16px 36px rgba(80, 60, 40, 0.18);
 }
+
+/* =========================
+   TYPO
+========================= */
 
 .title {
   margin-bottom: 14px;
-  font-family: "Cormorant Garamond", serif;
+
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.18em;
+
   color: #b08a6c;
+
   text-transform: uppercase;
 }
 
 .section-title-ko {
   margin-bottom: 26px;
-  font-family: "Noto Serif KR", serif;
+
   font-size: 1.4rem;
-  font-weight: 400;
   line-height: 1.5;
+
   color: var(--title);
 }
 
 .message {
   font-size: 1rem;
-  color: #5f5550;
   line-height: 2;
   letter-spacing: -0.01em;
+
+  color: #5f5550;
+
   white-space: pre-line;
 }
 
+/* =========================
+   FAMILY
+========================= */
+
 .names {
   margin-top: 42px;
+
   padding: 24px 18px;
+
   background: var(--card);
+
   border: 1px solid var(--line);
   border-radius: 22px;
+
   font-size: 0.95rem;
+
   color: var(--subtext);
 }
 
@@ -135,94 +203,126 @@ h1 {
 
 .names strong {
   margin-left: 6px;
-  font-family: "Noto Serif KR", serif;
-  font-size: 1.1rem;
+
+  font-size: 1.08rem;
   font-weight: 400;
+
   color: var(--text);
 }
 
 .call-link {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   width: 30px;
   height: 30px;
+
   margin-left: 8px;
+
   border-radius: 50%;
+
   background: var(--accent);
+
   color: #fff;
+
   text-decoration: none;
-  font-size: 0.75rem;
+
+  font-size: 0.74rem;
+
   vertical-align: middle;
+
+  transition: transform 0.2s ease;
 }
 
-.divider {
-  width: 1px;
-  height: 48px;
-  margin: 0 auto;
-  background: #ddc8b8;
+.call-link:active {
+  transform: scale(0.94);
 }
+
+/* =========================
+   INFO BOX
+========================= */
 
 .info-box {
+  padding: 30px 20px;
+
   background: var(--card);
+
   border: 1px solid var(--line);
   border-radius: 24px;
-  padding: 30px 20px;
-  box-shadow: 0 10px 24px rgba(80, 60, 40, 0.08);
+
+  box-shadow:
+    0 10px 24px rgba(80, 60, 40, 0.08);
 }
 
 .info-box p {
   margin: 8px 0;
+
   font-size: 0.95rem;
+
   color: #5f5550;
 }
 
 .info-box strong {
-  font-family: "GangwonEdu", serif;
   font-size: 1.05rem;
   font-weight: 400;
+
   color: var(--title);
 }
 
-/* Calendar */
+/* =========================
+   CALENDAR
+========================= */
+
 .calendar-wrap {
+  padding: 26px 18px;
+
   background: var(--card);
+
   border: 1px solid var(--line);
   border-radius: 26px;
-  padding: 26px 18px;
-  box-shadow: 0 12px 28px rgba(80, 60, 40, 0.1);
+
+  box-shadow:
+    0 12px 28px rgba(80, 60, 40, 0.1);
 }
 
 .calendar-month {
   margin: 0 0 18px;
-  font-family: "Cormorant Garamond", serif;
+
   font-size: 1.45rem;
-  font-weight: 500;
   letter-spacing: 0.06em;
+
   color: var(--title);
 }
 
 .calendar-weekdays,
 .calendar-dates {
   display: grid;
+
   grid-template-columns: repeat(7, 1fr);
+
   gap: 8px;
 }
 
 .calendar-weekdays span {
-  font-family: "Cormorant Garamond", serif;
   font-size: 0.78rem;
   font-weight: 600;
+
   color: #b08a6c;
 }
 
 .day {
   position: relative;
+
   min-height: 38px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-size: 0.88rem;
+
   color: #5f5550;
 }
 
@@ -232,39 +332,57 @@ h1 {
 
 .day.is-wedding {
   z-index: 1;
+
   flex-direction: column;
+
   font-weight: 600;
+
   color: #fff;
 }
 
 .day.is-wedding::before {
   content: "♥";
+
   position: absolute;
+
   inset: -3px 0 0;
+
   z-index: -1;
+
   font-size: 52px;
   line-height: 1;
+
   color: var(--heart);
 }
 
 .day-time {
   margin-top: -3px;
+
   font-size: 0.56rem;
 }
 
-/* Gallery */
+/* =========================
+   GALLERY
+========================= */
+
 .gallery-area {
   position: relative;
+
   margin: 30px -28px 0;
 }
 
 .slides {
   display: flex;
+
   gap: 14px;
+
   overflow-x: auto;
+
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+
   -webkit-overflow-scrolling: touch;
+
   padding: 0 28px 12px;
 }
 
@@ -274,39 +392,71 @@ h1 {
 
 .slides::-webkit-scrollbar-thumb {
   background: #d8c4b4;
+
   border-radius: 999px;
 }
 
 .slide {
   flex: 0 0 86%;
+
   overflow: hidden;
+
   scroll-snap-align: center;
-  background: #f8f1ea;
+
   border-radius: 26px;
+
+  background: #f8f1ea;
+
   box-shadow: var(--shadow);
 }
 
 .slide img {
   display: block;
+
   width: 100%;
+
   aspect-ratio: 3 / 4;
   object-fit: cover;
 }
 
 .gallery-nav {
   position: absolute;
+
   top: 50%;
   z-index: 2;
-  width: 38px;
-  height: 38px;
+
+  width: 42px;
+  height: 42px;
+
   border: none;
   border-radius: 50%;
+
   background: rgba(255, 253, 249, 0.92);
+
   color: #5d4638;
-  font-size: 26px;
+
+  font-size: 28px;
+
   cursor: pointer;
-  box-shadow: 0 8px 18px rgba(80, 60, 40, 0.18);
+
   transform: translateY(-50%);
+
+  box-shadow:
+    0 8px 18px rgba(80, 60, 40, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.gallery-nav:hover {
+  background: #fff;
+}
+
+.gallery-nav:active {
+  transform:
+    translateY(-50%)
+    scale(0.94);
 }
 
 .gallery-nav.prev {
@@ -319,27 +469,36 @@ h1 {
 
 .swipe-guide {
   margin-top: 14px;
+
   font-size: 0.82rem;
+
   color: var(--muted);
 }
 
-/* Location */
+/* =========================
+   MAP
+========================= */
+
 .map-card {
   margin-top: 26px;
+
   overflow: hidden;
+
   background: var(--card);
+
   border: 1px solid var(--line);
   border-radius: 26px;
+
   text-align: left;
-  box-shadow: 0 12px 28px rgba(80, 60, 40, 0.1);
+
+  box-shadow:
+    0 12px 28px rgba(80, 60, 40, 0.1);
 }
 
-.map-image {
-  display: block;
+.kakao-map,
+#map {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
-  background: #eee1d5;
+  height: 240px;
 }
 
 .map-info {
@@ -348,74 +507,116 @@ h1 {
 
 .place {
   margin-bottom: 6px;
-  font-family: "Noto Serif KR", serif;
+
   font-size: 1.15rem;
-  font-weight: 400;
+
   color: var(--title);
 }
 
 .address-row {
   display: flex;
+
   align-items: center;
+
   gap: 8px;
 }
 
 .address {
   flex: 1;
+
   font-size: 0.9rem;
+
   color: #75685f;
 }
 
 .icon-btn {
   width: 32px;
   height: 32px;
+
   border: none;
   border-radius: 50%;
+
   background: var(--accent-light);
+
   color: #5d4638;
+
   cursor: pointer;
 }
 
 .map-buttons {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 10px;
+
   margin-top: 20px;
 }
 
 .button {
   display: block;
+
   width: 100%;
+
   padding: 14px 12px;
+
   border: none;
   border-radius: 999px;
+
   background: var(--accent);
+
   color: #fff;
-  font-family: "Pretendard", sans-serif;
+
   font-size: 0.9rem;
+
   text-align: center;
   text-decoration: none;
+
   cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.button:hover {
+  opacity: 0.92;
+}
+
+.button:active {
+  transform: scale(0.98);
 }
 
 .button.light {
   background: var(--accent-light);
+
   color: #5d4638;
 }
 
+/* =========================
+   TRANSIT
+========================= */
+
 .transit-info {
   margin-top: 30px;
+
   padding: 4px 20px;
+
   background: var(--card-light);
+
   border: 1px solid var(--accent-light);
   border-radius: 24px;
+
   text-align: left;
 }
 
 .transit-item {
   display: flex;
+
   gap: 14px;
+
   padding: 22px 0;
+
   border-bottom: 1px solid #eee3d9;
 }
 
@@ -425,49 +626,63 @@ h1 {
 
 .transit-icon {
   flex: 0 0 36px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 36px;
   height: 36px;
+
   border-radius: 50%;
+
   background: var(--accent-light);
+
   color: var(--accent);
 }
 
 .transit-kind {
   margin: 0 0 6px;
-  font-family: "Noto Serif KR", serif;
-  font-weight: 400;
+
   color: var(--title);
 }
 
 .transit-text p {
   margin: 2px 0;
+
   font-size: 0.88rem;
+
   color: var(--subtext);
 }
 
-/* Account */
+/* =========================
+   ACCOUNT
+========================= */
+
 .account-list {
   display: grid;
+
   gap: 14px;
+
   margin-top: 26px;
+
   text-align: left;
 }
 
 details.account-card {
   overflow: hidden;
+
   background: var(--card);
+
   border: 1px solid var(--line);
   border-radius: 20px;
 }
 
 .account-summary {
   padding: 18px 20px;
+
   color: var(--title);
-  font-family: "GangwonEdu", serif;
-  font-weight: 400;
+
   cursor: pointer;
 }
 
@@ -477,62 +692,256 @@ details.account-card {
 
 .account-row {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
+
   padding: 12px 0;
+
   border-top: 1px solid var(--line);
 }
 
 .account-number {
   flex: 1;
+
   margin: 0;
+
   font-size: 0.9rem;
+
   color: #5f5550;
 }
 
 .copy-btn {
   padding: 8px 12px;
+
   border: none;
   border-radius: 999px;
+
   background: var(--accent);
+
   color: #fff;
-  font-family: "Pretendard", sans-serif;
+
   font-size: 0.82rem;
+
   cursor: pointer;
 }
 
-.copy-btn.light {
-  background: var(--accent-light);
-  color: #5d4638;
-}
+/* =========================
+   CONTACT
+========================= */
 
 .contact-buttons {
   display: grid;
+
   gap: 12px;
+
   margin-top: 20px;
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 footer {
   padding: 48px 20px;
+
   background: var(--card-light);
+
   color: #a5958a;
-  font-family: "Cormorant Garamond", serif;
+
   font-size: 0.85rem;
   letter-spacing: 0.12em;
+
   text-align: center;
 }
 
 .share-link-btn {
   margin-top: 18px;
+
   padding: 13px 22px;
+
   border: none;
   border-radius: 999px;
+
   background: var(--accent);
+
   color: #fff;
-  font-family: "Pretendard", sans-serif;
+
   font-size: 0.9rem;
+
   cursor: pointer;
 }
+
+/* =========================
+   LP PLAYER
+========================= */
+
+.music-button {
+  position: fixed;
+
+  right: 18px;
+  bottom: 18px;
+
+  z-index: 9999;
+
+  width: 60px;
+  height: 60px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background:
+    rgba(255, 253, 249, 0.92);
+
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.7);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.music-button:hover {
+  transform: translateY(-2px);
+}
+
+.lp-disc {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #f7efe9 0 10%,
+      #6b5647 11% 16%,
+      transparent 17%
+    ),
+    repeating-radial-gradient(
+      circle,
+      #4e3d33 0 2px,
+      #2e2724 2px 4px
+    );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.15),
+    0 3px 6px rgba(0,0,0,0.16);
+}
+
+.lp-hole {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 8px;
+  height: 8px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #f8f5f1;
+}
+
+.music-button.is-playing .lp-disc {
+  animation: lpRotate 3s linear infinite;
+}
+
+@keyframes lpRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   SAKURA
+========================= */
+
+.sakura-layer {
+  position: fixed;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+.sakura {
+  position: absolute;
+
+  top: -12vh;
+
+  border-radius: 70% 30% 70% 30%;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      #fff 6%,
+      #ffdce7 40%,
+      #f5b7ca 100%
+    );
+
+  opacity: 0.7;
+
+  filter: blur(0.3px);
+
+  animation-name: sakuraFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+@keyframes sakuraFall {
+  0% {
+    transform:
+      translate3d(0, -12vh, 0)
+      rotate(0deg);
+
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.75;
+  }
+
+  100% {
+    transform:
+      translate3d(var(--drift), 112vh, 0)
+      rotate(380deg);
+
+    opacity: 0.04;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 380px) {
   section {
@@ -545,162 +954,5 @@ footer {
 
   .slide {
     flex-basis: 88%;
-  }
-}
-
-h1,
-.subtitle,
-.title,
-.section-title-ko,
-.message,
-.names,
-.info-box,
-.calendar-wrap,
-.map-card,
-.transit-info,
-.account-list,
-.button,
-.copy-btn,
-footer,
-.share-link-btn {
-  font-family: "GangwonEdu", "Apple SD Gothic Neo", "Noto Sans KR", serif;
-}
-
-.date,
-.info-box strong,
-.account-summary,
-.calendar-month,
-.place,
-.transit-kind,
-.names strong,
-h1,
-.section-title-ko,
-.subtitle {
-  font-family: "GangwonEdu", serif !important;
-}
-
-.kakao-map,
-#map {
-  width: 100%;
-  height: 240px;
-}
-
-.music-button {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
-
-  width: 52px;
-  height: 52px;
-
-  border: none;
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-
-  color: #806650;
-  font-size: 1.2rem;
-
-  cursor: pointer;
-
-  transition: all 0.25s ease;
-}
-
-.music-button.is-playing {
-  animation: musicRotate 3s linear infinite;
-}
-
-@keyframes musicRotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* LP BGM Button */
-.music-button {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
-  width: 54px;
-  height: 54px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 253, 249, 0.92);
-  box-shadow: 0 8px 22px rgba(80, 60, 40, 0.18);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lp-disc {
-  position: relative;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at center, #f8efe7 0 12%, #3f352f 13% 19%, transparent 20%),
-    repeating-radial-gradient(circle, #5d4638 0 2px, #2f2925 3px 5px);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
-}
-
-.lp-hole {
-  position: absolute;
-  inset: 14px;
-  border-radius: 50%;
-  background: #fffdf9;
-}
-
-.music-button.is-playing .lp-disc {
-  animation: lpRotate 3s linear infinite;
-}
-
-@keyframes lpRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Sakura Effect */
-.sakura-layer {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 9998;
-}
-
-.sakura {
-  position: absolute;
-  top: -10vh;
-  width: 10px;
-  height: 14px;
-  border-radius: 70% 30% 70% 30%;
-  background: radial-gradient(circle at 30% 25%, #fff 6%, #ffdce7 40%, #f5b7ca 100%);
-  opacity: 0.75;
-  animation-name: sakuraFall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes sakuraFall {
-  0% {
-    transform: translate3d(0, -10vh, 0) rotate(0deg);
-    opacity: 0;
-  }
-  12% {
-    opacity: 0.75;
-  }
-  100% {
-    transform: translate3d(var(--drift), 110vh, 0) rotate(380deg);
-    opacity: 0.05;
   }
 }
