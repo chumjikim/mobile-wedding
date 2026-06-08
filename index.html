@@ -12,71 +12,251 @@
   />
 
   <link rel="stylesheet" href="./style.css" />
+
+  <style>
+    .section-heading {
+      margin-bottom: 26px;
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #806650;
+      letter-spacing: 0.04em;
+    }
+
+    .section-heading::after {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 1px;
+      margin: 16px auto 0;
+      background: #d8c4b4;
+    }
+
+    .main-photo {
+      display: block;
+      width: 100%;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .verse-box {
+      margin: 38px 24px 12px;
+      text-align: center;
+    }
+
+    .verse-line {
+      width: 48px;
+      height: 1px;
+      margin: 0 auto;
+      background: #d7c5b7;
+    }
+
+    .verse-text {
+      margin: 18px 0 8px;
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--title);
+      letter-spacing: 0.02em;
+    }
+
+    .verse-source {
+      margin: 0 0 18px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+    }
+
+    .section-rule {
+      width: 72px;
+      height: 1px;
+      margin: 0 auto;
+      background: #d8c4b4;
+    }
+
+    .wedding-summary {
+      padding: 60px 28px 58px;
+      text-align: center;
+    }
+
+    .summary-date {
+      margin-top: 8px;
+      font-size: 1.12rem;
+      line-height: 1.8;
+      color: var(--title);
+    }
+
+    .summary-time {
+      margin-top: 2px;
+      font-size: 1rem;
+      color: var(--subtext);
+    }
+
+    .summary-place {
+      margin-top: 12px;
+      margin-bottom: 30px;
+      font-size: 1.18rem;
+      color: var(--title);
+    }
+
+    .summary-inner-rule {
+      width: 54px;
+      height: 1px;
+      margin: 30px auto;
+      background: #ddc8b8;
+    }
+
+    .calendar-wrap.clean {
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .summary-names {
+      margin-top: 26px;
+      color: var(--subtext);
+    }
+
+    .summary-names p {
+      margin: 10px 0;
+      font-size: 0.98rem;
+    }
+
+    .summary-names strong {
+      margin-left: 6px;
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--title);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .gallery-thumb {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      overflow: hidden;
+      background: none;
+      cursor: pointer;
+    }
+
+    .gallery-thumb img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .gallery-guide {
+      margin-top: 14px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .gallery-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.82);
+    }
+
+    .gallery-lightbox.is-show {
+      display: flex;
+    }
+
+    .gallery-lightbox img {
+      max-width: 92vw;
+      max-height: 82vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close,
+    .lightbox-nav {
+      position: absolute;
+      border: none;
+      background: rgba(255, 255, 255, 0.9);
+      color: #3f352f;
+      cursor: pointer;
+    }
+
+    .lightbox-close {
+      top: 18px;
+      right: 18px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+    }
+
+    .lightbox-nav {
+      top: 50%;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 2rem;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-prev {
+      left: 18px;
+    }
+
+    .lightbox-next {
+      right: 18px;
+    }
+
+    body.is-lightbox-open {
+      overflow: hidden;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="sakura-layer" id="sakuraLayer" aria-hidden="true"></div>
-
   <div class="container">
 
-    <section class="hero">
-      <div class="date">2026. 08. 29 SAT 12:00 PM</div>
-      <h1>김찬규 · 고륜영</h1>
-      <div class="subtitle">저희 결혼합니다</div>
-    </section>
+    <img class="main-photo" src="./1.jpg" alt="웨딩 대표 사진" />
 
-    <img class="main-photo" src="./4.jpg" alt="웨딩 대표 사진" />
+    <div class="verse-box">
+      <div class="verse-line"></div>
+      <p class="verse-text">사랑은 언제까지나 스러지지 않습니다.</p>
+      <p class="verse-source">1코린 13,8</p>
+      <div class="verse-line"></div>
+    </div>
 
     <section>
-      <div class="title">INVITATION</div>
-      <div class="section-title-ko">소중한 분들을 초대합니다</div>
+      <div class="section-heading">소중한 분들을 초대합니다</div>
 
       <div class="message">
-서로의 곁에서 가장 따뜻한 사람이 되어주려 합니다.
-
-소중한 분들을 모시고
-저희 두 사람이 하나 되는 약속을 나누고자 합니다.
-
-귀한 걸음으로 함께해 주시면
-더없는 기쁨으로 간직하겠습니다.
-      </div>
-
-      <div class="names">
-        <p>
-          김병묵 · 정영남 의 아들 <strong>김찬규</strong>
-          <a class="call-link" href="tel:0100000000" aria-label="김찬규에게 전화하기">
-            <i class="fa-solid fa-phone"></i>
-          </a>
-        </p>
-        <p>
-          고경환 · 이현경 의 딸 <strong>고륜영</strong>
-          <a class="call-link" href="tel:0100000000" aria-label="고륜영에게 전화하기">
-            <i class="fa-solid fa-phone"></i>
-          </a>
-        </p>
+        서로의 인생에 다가선 두 사람이
+        이제 하나가 되어 새로운 시작을 하려 합니다.
+        귀한 걸음으로 오셔서 축복해 주시고 함께해 주세요.
       </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="section-rule"></div>
 
-    <section>
-      <div class="title">WEDDING DAY</div>
-      <div class="section-title-ko">예식 안내</div>
+    <section class="wedding-summary">
+      <div class="section-heading">예식 안내</div>
 
-      <div class="info-box">
-        <p><strong>2026년 08월 29일 토요일 오후 12시</strong></p>
-        <p>명동성당 대성전</p>
-        <p>서울특별시 중구 명동길 74</p>
-      </div>
-    </section>
+      <div class="summary-date">2026년 08월 29일 토요일</div>
+      <div class="summary-time">오후 12시</div>
+      <div class="summary-place">명동성당 대성전</div>
 
-    <div class="divider"></div>
+      <div class="summary-inner-rule"></div>
 
-    <section>
-      <div class="title">OUR DAY</div>
-      <div class="section-title-ko">2026년 8월</div>
-
-      <div class="calendar-wrap">
+      <div class="calendar-wrap clean">
         <p class="calendar-month">August</p>
 
         <div class="calendar-weekdays">
@@ -104,37 +284,92 @@
           <span class="day">30</span><span class="day">31</span>
         </div>
       </div>
+
+      <div class="summary-inner-rule"></div>
+
+      <div class="summary-names">
+        <p>김병묵 · 정영남 의 아들 <strong>김찬규</strong></p>
+        <p>고경환 · 이현경 의 딸 <strong>고륜영</strong></p>
+      </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="section-rule"></div>
 
     <section>
-      <div class="title">GALLERY</div>
-      <div class="section-title-ko">우리의 순간</div>
+      <div class="section-heading">우리의 순간</div>
 
-      <div class="gallery-area">
-        <button class="gallery-nav prev" type="button" id="galleryPrev">‹</button>
+      <div class="gallery-grid" id="galleryGrid">
+        <button class="gallery-thumb" type="button" data-src="./2.jpg" aria-label="웨딩 사진 2 크게 보기">
+          <img src="./2.jpg" alt="웨딩 사진 2" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./3.jpg" aria-label="웨딩 사진 3 크게 보기">
+          <img src="./3.jpg" alt="웨딩 사진 3" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./4.jpg" aria-label="웨딩 사진 4 크게 보기">
+          <img src="./4.jpg" alt="웨딩 사진 4" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./5.jpg" aria-label="웨딩 사진 5 크게 보기">
+          <img src="./5.jpg" alt="웨딩 사진 5" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./6.jpg" aria-label="웨딩 사진 6 크게 보기">
+          <img src="./6.jpg" alt="웨딩 사진 6" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./7.jpg" aria-label="웨딩 사진 7 크게 보기">
+          <img src="./7.jpg" alt="웨딩 사진 7" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./8.jpg" aria-label="웨딩 사진 8 크게 보기">
+          <img src="./8.jpg" alt="웨딩 사진 8" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./9.jpg" aria-label="웨딩 사진 9 크게 보기">
+          <img src="./9.jpg" alt="웨딩 사진 9" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./10.jpg" aria-label="웨딩 사진 10 크게 보기">
+          <img src="./10.jpg" alt="웨딩 사진 10" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./11.jpg" aria-label="웨딩 사진 11 크게 보기">
+          <img src="./11.jpg" alt="웨딩 사진 11" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./12.jpg" aria-label="웨딩 사진 12 크게 보기">
+          <img src="./12.jpg" alt="웨딩 사진 12" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./13.jpg" aria-label="웨딩 사진 13 크게 보기">
+          <img src="./13.jpg" alt="웨딩 사진 13" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./14.jpg" aria-label="웨딩 사진 14 크게 보기">
+          <img src="./14.jpg" alt="웨딩 사진 14" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./15.jpg" aria-label="웨딩 사진 15 크게 보기">
+          <img src="./15.jpg" alt="웨딩 사진 15" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./16.jpg" aria-label="웨딩 사진 16 크게 보기">
+          <img src="./16.jpg" alt="웨딩 사진 16" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./17.jpg" aria-label="웨딩 사진 17 크게 보기">
+          <img src="./17.jpg" alt="웨딩 사진 17" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./18.jpg" aria-label="웨딩 사진 18 크게 보기">
+          <img src="./18.jpg" alt="웨딩 사진 18" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./19.jpg" aria-label="웨딩 사진 19 크게 보기">
+          <img src="./19.jpg" alt="웨딩 사진 19" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./20.jpg" aria-label="웨딩 사진 20 크게 보기">
+          <img src="./20.jpg" alt="웨딩 사진 20" />
+        </button>
+        <button class="gallery-thumb" type="button" data-src="./21.jpg" aria-label="웨딩 사진 21 크게 보기">
+          <img src="./21.jpg" alt="웨딩 사진 21" />
+        </button>
 
-        <div class="slides" id="gallerySlides">
-          <div class="slide"><img src="./1.jpg" alt="웨딩 사진 1" /></div>
-          <div class="slide"><img src="./2.jpg" alt="웨딩 사진 2" /></div>
-          <div class="slide"><img src="./3.jpg" alt="웨딩 사진 3" /></div>
-          <div class="slide"><img src="./5.jpg" alt="웨딩 사진 4" /></div>
-          <div class="slide"><img src="./6.jpg" alt="웨딩 사진 5" /></div>
-          <div class="slide"><img src="./7.jpg" alt="웨딩 사진 6" /></div>
-        </div>
-
-        <button class="gallery-nav next" type="button" id="galleryNext">›</button>
+        
       </div>
 
-      <div class="swipe-guide">← 사진을 좌우로 넘겨보세요 →</div>
+      <div class="gallery-guide">사진을 누르면 크게 볼 수 있습니다</div>
     </section>
 
-    <div class="divider"></div>
+    <div class="section-rule"></div>
 
     <section>
-      <div class="title">LOCATION</div>
-      <div class="section-title-ko">오시는 길</div>
+      <div class="section-heading">오시는 길</div>
 
       <div class="map-card">
         <div id="map" class="kakao-map" aria-label="명동성당 지도"></div>
@@ -195,15 +430,14 @@
       </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="section-rule"></div>
 
     <section>
-      <div class="title">ACCOUNT</div>
-      <div class="section-title-ko">축하의 마음 전하실 곳</div>
+      <div class="section-heading">축하의 마음 전하실 곳</div>
 
       <div class="message">
-참석이 어려우신 분들을 위해
-마음 전하실 곳을 안내드립니다.
+        참석이 어려우신 분들을 위해
+        마음 전하실 곳을 안내드립니다.
       </div>
 
       <div class="account-list">
@@ -211,15 +445,22 @@
           <summary class="account-summary">신랑측</summary>
           <div class="account-body">
             <div class="account-row">
-              <p class="account-number">우리은행 000-0000-0000 김찬규</p>
-              <button class="copy-btn" type="button" onclick="copyText('000-0000-0000')">
+              <p class="account-number">우리은행 1002-035-939793 김찬규</p>
+              <button class="copy-btn" type="button" onclick="copyText('1002-035-939793')">
                 <i class="fa-regular fa-copy"></i> 복사
               </button>
             </div>
 
             <div class="account-row">
-              <p class="account-number">우리은행 000-0000-0000 김병묵</p>
-              <button class="copy-btn" type="button" onclick="copyText('000-0000-0000')">
+              <p class="account-number">우리은행 137-315690-02-001 김병묵</p>
+              <button class="copy-btn" type="button" onclick="copyText('137-315690-02-001')">
+                <i class="fa-regular fa-copy"></i> 복사
+              </button>
+            </div>
+
+            <div class="account-row">
+              <p class="account-number">우리은행 137-206361-12-201 정영남</p>
+              <button class="copy-btn" type="button" onclick="copyText('137-206361-12-201')">
                 <i class="fa-regular fa-copy"></i> 복사
               </button>
             </div>
@@ -230,15 +471,22 @@
           <summary class="account-summary">신부측</summary>
           <div class="account-body">
             <div class="account-row">
-              <p class="account-number">우리은행 000-0000-0000 고륜영</p>
-              <button class="copy-btn" type="button" onclick="copyText('000-0000-0000')">
+              <p class="account-number">우리은행 1002-865-813561 고륜영</p>
+              <button class="copy-btn" type="button" onclick="copyText('1002-865-813561')">
                 <i class="fa-regular fa-copy"></i> 복사
               </button>
             </div>
 
             <div class="account-row">
-              <p class="account-number">우리은행 000-0000-0000 고경환</p>
-              <button class="copy-btn" type="button" onclick="copyText('000-0000-0000')">
+              <p class="account-number">신한은행 110-430-277836 고경환</p>
+              <button class="copy-btn" type="button" onclick="copyText('110-430-277836')">
+                <i class="fa-regular fa-copy"></i> 복사
+              </button>
+            </div>
+
+            <div class="account-row">
+              <p class="account-number">농협은행 8530-22-95918 이현경</p>
+              <button class="copy-btn" type="button" onclick="copyText('8530-22-95918')">
                 <i class="fa-regular fa-copy"></i> 복사
               </button>
             </div>
@@ -247,11 +495,10 @@
       </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="section-rule"></div>
 
     <section>
-      <div class="title">CONTACT</div>
-      <div class="section-title-ko">연락하기</div>
+      <div class="section-heading">연락하기</div>
 
       <div class="contact-buttons">
         <a class="button" href="tel:0100000000">신랑에게 연락하기</a>
@@ -269,6 +516,15 @@
 
   </div>
 
+  <div id="galleryLightbox" class="gallery-lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="사진 닫기">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label="이전 사진">‹</button>
+    <img id="lightboxImage" src="" alt="확대된 웨딩 사진" />
+    <button class="lightbox-nav lightbox-next" type="button" aria-label="다음 사진">›</button>
+  </div>
+
   <audio id="bgm" loop>
     <source src="./bgm.mp3" type="audio/mpeg" />
   </audio>
@@ -280,29 +536,6 @@
   </button>
 
   <script>
-    const slides = document.getElementById("gallerySlides");
-    const prevBtn = document.getElementById("galleryPrev");
-    const nextBtn = document.getElementById("galleryNext");
-
-    function getSlideWidth() {
-      const slide = slides.querySelector(".slide");
-      return slide ? slide.offsetWidth + 14 : 300;
-    }
-
-    prevBtn.addEventListener("click", () => {
-      slides.scrollBy({
-        left: -getSlideWidth(),
-        behavior: "smooth"
-      });
-    });
-
-    nextBtn.addEventListener("click", () => {
-      slides.scrollBy({
-        left: getSlideWidth(),
-        behavior: "smooth"
-      });
-    });
-
     function copyText(text) {
       navigator.clipboard.writeText(text).then(() => {
         alert("복사되었습니다.");
@@ -316,106 +549,129 @@
       copyText(url);
     }
   </script>
-<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=5ad06cd27274a902e8c6e6f5b89fe3dc&autoload=false"></script>
 
-<script>
-  kakao.maps.load(function () {
-    const mapContainer = document.getElementById("map");
-    const weddingPlace = new kakao.maps.LatLng(37.563158, 126.987941);
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=5ad06cd27274a902e8c6e6f5b89fe3dc&autoload=false"></script>
 
-    const map = new kakao.maps.Map(mapContainer, {
-      center: weddingPlace,
-      level: 3
+  <script>
+    kakao.maps.load(function () {
+      const mapContainer = document.getElementById("map");
+      const weddingPlace = new kakao.maps.LatLng(37.563158, 126.987941);
+
+      const map = new kakao.maps.Map(mapContainer, {
+        center: weddingPlace,
+        level: 3
+      });
+
+      const marker = new kakao.maps.Marker({
+        position: weddingPlace,
+        map: map
+      });
+    });
+  </script>
+
+  <script>
+    const bgm = document.getElementById("bgm");
+    const musicToggle = document.getElementById("musicToggle");
+
+    let isPlaying = false;
+
+    async function playMusic() {
+      try {
+        bgm.volume = 0.5;
+        await bgm.play();
+        isPlaying = true;
+        musicToggle.classList.add("is-playing");
+      } catch (e) {
+        console.log("음악 재생 실패:", e);
+      }
+    }
+
+    function pauseMusic() {
+      bgm.pause();
+      isPlaying = false;
+      musicToggle.classList.remove("is-playing");
+    }
+
+    musicToggle.addEventListener("click", function (event) {
+      event.stopPropagation();
+
+      if (isPlaying) {
+        pauseMusic();
+      } else {
+        playMusic();
+      }
     });
 
-    const marker = new kakao.maps.Marker({
-      position: weddingPlace,
-      map: map
+    document.addEventListener(
+      "touchstart",
+      function () {
+        if (!isPlaying) playMusic();
+      },
+      { once: true }
+    );
+
+    document.addEventListener(
+      "click",
+      function () {
+        if (!isPlaying) playMusic();
+      },
+      { once: true }
+    );
+  </script>
+
+  <script>
+    const galleryThumbs = Array.from(document.querySelectorAll(".gallery-thumb"));
+    const galleryLightbox = document.getElementById("galleryLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.querySelector(".lightbox-close");
+    const lightboxPrev = document.querySelector(".lightbox-prev");
+    const lightboxNext = document.querySelector(".lightbox-next");
+
+    let currentGalleryIndex = 0;
+
+    function openGalleryLightbox(index) {
+      currentGalleryIndex = index;
+      lightboxImage.src = galleryThumbs[currentGalleryIndex].dataset.src;
+      galleryLightbox.classList.add("is-show");
+      galleryLightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("is-lightbox-open");
+    }
+
+    function closeGalleryLightbox() {
+      galleryLightbox.classList.remove("is-show");
+      galleryLightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("is-lightbox-open");
+      lightboxImage.src = "";
+    }
+
+    function showGalleryImage(direction) {
+      currentGalleryIndex =
+        (currentGalleryIndex + direction + galleryThumbs.length) % galleryThumbs.length;
+      lightboxImage.src = galleryThumbs[currentGalleryIndex].dataset.src;
+    }
+
+    galleryThumbs.forEach((thumb, index) => {
+      thumb.addEventListener("click", () => openGalleryLightbox(index));
     });
-  });
-</script>
-<script>
-  const bgm = document.getElementById("bgm");
-  const musicToggle = document.getElementById("musicToggle");
 
-  let isPlaying = false;
+    lightboxClose.addEventListener("click", closeGalleryLightbox);
+    lightboxPrev.addEventListener("click", () => showGalleryImage(-1));
+    lightboxNext.addEventListener("click", () => showGalleryImage(1));
 
-  async function playMusic() {
-    try {
-      bgm.volume = 0.5;
-      await bgm.play();
-      isPlaying = true;
-      musicToggle.classList.add("is-playing");
-    } catch (e) {
-      console.log("음악 재생 실패:", e);
-    }
-  }
+    galleryLightbox.addEventListener("click", (event) => {
+      if (event.target === galleryLightbox) {
+        closeGalleryLightbox();
+      }
+    });
 
-  function pauseMusic() {
-    bgm.pause();
-    isPlaying = false;
-    musicToggle.classList.remove("is-playing");
-  }
+    document.addEventListener("keydown", (event) => {
+      if (!galleryLightbox.classList.contains("is-show")) return;
 
-  musicToggle.addEventListener("click", function (event) {
-    event.stopPropagation();
-
-    if (isPlaying) {
-      pauseMusic();
-    } else {
-      playMusic();
-    }
-  });
-
-  document.addEventListener(
-    "touchstart",
-    function () {
-      if (!isPlaying) playMusic();
-    },
-    { once: true }
-  );
-
-  document.addEventListener(
-    "click",
-    function () {
-      if (!isPlaying) playMusic();
-    },
-    { once: true }
-  );
-</script>
-<script>
-  const sakuraLayer = document.getElementById("sakuraLayer");
-
-  function createSakura() {
-    const sakura = document.createElement("span");
-    sakura.className = "sakura";
-
-    const size = Math.random() * 7 + 7;
-    const left = Math.random() * 100;
-    const duration = Math.random() * 6 + 8;
-    const delay = Math.random() * 4;
-    const drift = Math.random() * 120 - 60;
-
-    sakura.style.width = `${size}px`;
-    sakura.style.height = `${size * 1.35}px`;
-    sakura.style.left = `${left}%`;
-    sakura.style.animationDuration = `${duration}s`;
-    sakura.style.animationDelay = `${delay}s`;
-    sakura.style.setProperty("--drift", `${drift}px`);
-
-    sakuraLayer.appendChild(sakura);
-
-    setTimeout(() => {
-      sakura.remove();
-    }, (duration + delay) * 1000);
-  }
-
-  for (let i = 0; i < 18; i++) {
-    createSakura();
-  }
-
-  setInterval(createSakura, 700);
-</script>
+      if (event.key === "Escape") closeGalleryLightbox();
+      if (event.key === "ArrowLeft") showGalleryImage(-1);
+      if (event.key === "ArrowRight") showGalleryImage(1);
+    });
+  </script>
 
 </body>
 </html>
