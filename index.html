@@ -217,6 +217,50 @@
       right: 18px;
     }
 
+
+    .notice-box {
+      margin-top: 28px;
+      padding: 22px 20px;
+      background: var(--card-light);
+      border: 1px solid var(--accent-light);
+      border-radius: 22px;
+      text-align: left;
+      color: var(--subtext);
+    }
+
+    .notice-title {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: var(--title);
+      text-align: center;
+    }
+
+    .notice-text {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
     body.is-lightbox-open {
       overflow: hidden;
     }
@@ -504,6 +548,17 @@
         <a class="button" href="tel:0100000000">신랑에게 연락하기</a>
         <a class="button light" href="tel:0100000000">신부에게 연락하기</a>
       </div>
+
+      <div class="notice-divider"></div>
+
+      <div class="notice-box">
+        <p class="notice-title">유의사항</p>
+        <p class="notice-text">
+          축하 화환은 반입이 불가하며, 화분·꽃바구니·쌀화환은 접수 가능합니다.<br>
+          단, 쌀화환은 거치대 없이 쌀과 리본만 반입 가능합니다.<br>
+          <span>※ 쌀은 불우이웃을 돕는 목적으로 기부 가능합니다.</span>
+        </p>
+      </div>
     </section>
 
     <footer>
@@ -658,6 +713,31 @@
     lightboxPrev.addEventListener("click", () => showGalleryImage(-1));
     lightboxNext.addEventListener("click", () => showGalleryImage(1));
 
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    galleryLightbox.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+      touchStartY = event.changedTouches[0].clientY;
+    }, { passive: true });
+
+    galleryLightbox.addEventListener("touchend", (event) => {
+      if (!galleryLightbox.classList.contains("is-show")) return;
+
+      const touchEndX = event.changedTouches[0].clientX;
+      const touchEndY = event.changedTouches[0].clientY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+
+      if (Math.abs(diffX) < 50 || Math.abs(diffX) < Math.abs(diffY)) return;
+
+      if (diffX < 0) {
+        showGalleryImage(1);
+      } else {
+        showGalleryImage(-1);
+      }
+    }, { passive: true });
+
     galleryLightbox.addEventListener("click", (event) => {
       if (event.target === galleryLightbox) {
         closeGalleryLightbox();
@@ -670,6 +750,33 @@
       if (event.key === "Escape") closeGalleryLightbox();
       if (event.key === "ArrowLeft") showGalleryImage(-1);
       if (event.key === "ArrowRight") showGalleryImage(1);
+    });
+  </script>
+
+
+  <script>
+    const revealTargets = document.querySelectorAll(
+      ".container > section, .verse-box, .section-rule, footer"
+    );
+
+    revealTargets.forEach((element) => {
+      element.classList.add("reveal");
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    });
+
+    revealTargets.forEach((element) => {
+      revealObserver.observe(element);
     });
   </script>
 

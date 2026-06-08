@@ -53,7 +53,7 @@ body {
 }
 
 section {
-  padding: 70px 28px;
+  padding: 56px 28px;
   text-align: center;
 }
 
@@ -784,7 +784,7 @@ body.is-lightbox-open {
 }
 
 .wedding-summary {
-  padding: 60px 28px;
+  padding: 56px 28px;
   text-align: center;
 }
 
@@ -819,4 +819,72 @@ body.is-lightbox-open {
 .summary-names strong {
   color: var(--title);
   font-size: 1.08rem;
+}
+
+.section-rule {
+  width: 72px;
+  height: 1px;
+  margin: 0 auto;
+  background: #d8c4b4;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-lightbox {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.gallery-lightbox.is-show {
+  opacity: 1;
+}
+
+.gallery-thumb img {
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.gallery-thumb:hover img {
+  transform: scale(1.04);
+}
+
+.notice-box {
+  margin-top: 50px;
+  padding: 18px;
+  background: #faf7f3;
+  border: 1px solid #eadccc;
+  border-radius: 16px;
+  text-align: left;
+}
+
+.notice-title {
+  margin-bottom: 10px;
+  color: var(--title);
+  font-size: 0.95rem;
+}
+
+.notice-text {
+  margin: 0;
+  color: var(--subtext);
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.notice-divider {
+  width: 60px;
+  height: 1px;
+  margin: 42px auto;
+  background: #d8c4b4;
 }
